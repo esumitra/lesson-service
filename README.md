@@ -27,7 +27,8 @@ The project requires Java 8 or Java 11, Scala 2.12.12 and sbt 1.5.2+ environment
 
 ### Running the service
  - Start the server using `sbt run`
- - Open the  
+ - Open the documentation at http://localhost:8080/docs
+ 
 ### Static Analysis Tools
 
 #### Scalafmt
