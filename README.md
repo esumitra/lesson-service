@@ -1,6 +1,20 @@
 ## Lesson Service
-This project ...
+This project illustrates an **API-first** approach to developing microservices. The advantages of an API first approach are
+1. Reduced dependencies by decoupling API specification from API implementation. Clients are only dependent on the API specification
+2. Generate different implementations of the specification
+      - a mock implementation for testing
+      - a server implementation which is the main service
+      - a client implementation that other clients and microservices can use
+3. Consumer Contract Based Testing of API specification
+4. Early validation of solutions us that call multiple microservices API endpoints.
 
+
+
+Two ways of implementing an API first approach for designing microservices are
+- Configuration based: Swagger/OAS YAML files or similar
+- Code based: The specification is implemented in code using Tapir or endpoint4s.
+
+This project uses tapir (for typed API description) from https://github.com/softwaremill/tapir to implement an API first approach to developing microservices. 
 
 The project requires Java 8 or Java 11, Scala 2.12.12 and sbt 1.5.2+ environment to run.
 
@@ -8,10 +22,12 @@ The project requires Java 8 or Java 11, Scala 2.12.12 and sbt 1.5.2+ environment
  Use the following commands to get started with your project
 
  - Compile: `sbt compile`
- - Create a "fat" jar: `sbt assembly`
  - Run tests: `sbt test`
  - To install in local repo: `sbt publishLocal`
 
+### Running the service
+ - Start the server using `sbt run`
+ - Open the  
 ### Static Analysis Tools
 
 #### Scalafmt
@@ -37,6 +53,6 @@ For test files.
 `sbt "test:scalafix RemoveUnused"`
 
 ### License
-Copyright <year>, <author>
+Copyright 2021, Edward Sumitra
 
 Licensed under the Apache License, Version 2.0.
