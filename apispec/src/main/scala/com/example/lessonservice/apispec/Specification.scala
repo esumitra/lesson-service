@@ -13,7 +13,7 @@ object Specification {
     .in(auth.bearer[String])
     .in("api" / "scorelesson")
     .in(jsonBody[ScoreLessonRequestDTO])
-    .out(jsonBody[ScoreResponse])
+    .out(jsonBody[ScoreResponseDTO])
     .errorOut(stringBody)
 
   // endpoint 2: list upcoming lessons

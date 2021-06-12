@@ -10,11 +10,20 @@ case class ScoreLessonRequestDTO(
   answers: List[QuizResponseDTO]
 )
 
-case class ScoreResponse(
+case class ScoreResponseDTO(
   userId: String,
   lessonId: String,
-  score: Int
+  score: Int,
+  pass: Boolean
 )
+
+object ScoreResponseDTO {
+  def apply(
+    userId: String,
+    lessonId: String,
+    score: Int): ScoreResponseDTO =
+    ScoreResponseDTO(userId, lessonId, score, if (score < 75) false else true)
+}
 
 case class LessonDTO(
   id: String,

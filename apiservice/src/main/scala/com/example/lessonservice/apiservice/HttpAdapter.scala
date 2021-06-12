@@ -3,13 +3,16 @@ package com.example.lessonservice.apiservice
 import org.http4s.HttpRoutes
 import sttp.tapir.swagger.http4s.SwaggerHttp4s
 import com.example.lessonservice.apispec.Specification
-import com.example.lessonservice.apispec.{ScoreResponse, UpcomingLessonsResponseDTO, LessonDTO}
+import com.example.lessonservice.apispec.{ScoreResponseDTO, UpcomingLessonsResponseDTO, LessonDTO}
 import zio._
 import zio.interop.catz._
 import cats.implicits._
+import scala.util.Random
 
 object HttpAdapter {
   
+  val randScore = new Random()
+
   val upcomingLessons = UpcomingLessonsResponseDTO(
     "user1",
     List(
@@ -22,7 +25,7 @@ object HttpAdapter {
     case (token, scoreRequest) => {
       if (token == "1234") {
         IO.succeed {
-          ScoreResponse(scoreRequest.userId, scoreRequest.lessonId, 80)
+          ScoreResponseDTO(scoreRequest.userId, scoreRequest.lessonId, randScore.nextInt(100))
         }
       } else {
         IO.fail("Invalid token")
